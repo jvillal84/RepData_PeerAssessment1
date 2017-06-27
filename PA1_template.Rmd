@@ -9,6 +9,7 @@ output:
 ## Loading and preprocessing the data
 
 The following piece of code will load the needed libraries, read the dataset and store it in a variable called data:
+
 ```{r load_data, message=FALSE, warning=FALSE}
 library(ggplot2)
 library(zoo)
@@ -18,10 +19,12 @@ str(data)
 ```
 
 It can be found that the number of **steps** and the **interval** have been recognized as *Integer*, which is ok. However, the **date** has been recognized as a *Factor*. So, let's convert it to *Date* format:
+
 ```{r}
 data$date <- as.Date(data$date, format="%Y-%m-%d")
 str(data)
 ```
+
 Now, each field has the proper type and the data is ready to be processed.
 
 ## What is mean total number of steps taken per day?
@@ -38,7 +41,7 @@ ggplot(data = total_steps_per_day, aes(steps)) +
 It seems that most of the samples are around 10/11k steps per day. 
 So, lets calculate the mean and median:
 
-````{r}
+```{r}
 mean_steps_per_dat <- mean(total_steps_per_day$steps)
 mean_steps_per_dat
 median_steps_per_dat <- median(total_steps_per_day$steps)

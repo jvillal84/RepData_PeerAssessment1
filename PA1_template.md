@@ -5,6 +5,7 @@
 
 The following piece of code will load the needed libraries, read the dataset and store it in a variable called data:
 
+
 ```r
 library(ggplot2)
 library(zoo)
@@ -22,6 +23,7 @@ str(data)
 
 It can be found that the number of **steps** and the **interval** have been recognized as *Integer*, which is ok. However, the **date** has been recognized as a *Factor*. So, let's convert it to *Date* format:
 
+
 ```r
 data$date <- as.Date(data$date, format="%Y-%m-%d")
 str(data)
@@ -33,6 +35,7 @@ str(data)
 ##  $ date    : Date, format: "2012-10-01" "2012-10-01" ...
 ##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
 ```
+
 Now, each field has the proper type and the data is ready to be processed.
 
 ## What is mean total number of steps taken per day?
